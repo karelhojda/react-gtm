@@ -47,7 +47,17 @@ const TagManager = {
     const snippets = Snippets.dataLayer(dataLayer, dataLayerName)
     const dataScript = this.dataScript(snippets)
     document.head.insertBefore(dataScript, document.head.childNodes[0])
-  }
+  },
+  consent: function ({ action, innerSettings }) {
+    this.gtm(
+      'consent',
+      action,
+      {
+        innerSettings
+      }
+    )
+    console.log('consent' + action + 'sended');
+  },
 }
 
 module.exports = TagManager
